@@ -32,3 +32,5 @@ def test_user_name(config,http_session,user_id,expected_name):
 def test_session_header(http_session):
     #conftest里设置的User-Agent应该在会话的默认值请求头里
     assert http_session.headers["User-Agent"] == "day2-pytest-practice"
+
+print(111)
