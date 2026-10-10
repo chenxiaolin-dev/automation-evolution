@@ -1,0 +1,12 @@
+
+#data/posts_cases.yaml - 只有数据，没有一行代码
+cases:
+  - case_id: post_001  #正向
+    post_id: 1
+  - case_id: post_002
+    post_id: 2
+  - case_id: post_100
+    post_id: 100
+  - case_id: post_99999_notfound  #反向
+    post_id: 99999
+    expected_status: 404

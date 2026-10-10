@@ -8,6 +8,8 @@ import pytest
 
 import requests
 
+from api.client import ApiClient
+
 @pytest.fixture(scope="session")
 def config():
     #session  全局作用域
@@ -24,3 +26,10 @@ def http_session():
     s.headers.update({"User-Agent": "day2-pytest-practice"})
     yield s
     s.close()
+
+@pytest.fixture(scope="session")
+def api_client():
+    #session 级：整个运行过程一个客户端，域名只配置一次
+    client = ApiClient("https://jsonplaceholder.typicode.com", timeout=10)
+    yield client
+    client.close()
