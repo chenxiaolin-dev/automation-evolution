@@ -10,6 +10,8 @@ import requests
 
 from api.client import ApiClient
 
+from db import DB
+
 @pytest.fixture(scope="session")
 def config():
     #session  全局作用域
@@ -33,3 +35,17 @@ def api_client():
     client = ApiClient("https://jsonplaceholder.typicode.com", timeout=10)
     yield client
     client.close()
+
+@pytest.fixture(scope="session")
+def api_Local_mock():
+    #session 级：整个运行过程一个客户端，域名只配置一次
+    Local_mock = ApiClient("http://127.0.0.1:5000", timeout=10)
+    yield Local_mock
+    Local_mock.close()
+
+@pytest.fixture(scope="session")
+def db():
+    #整个测试过程一个连接：连库是有开销的，不该每天用例都连
+    conn = DB()
+    yield conn  #yield 之后是teardown
+    conn.close()
