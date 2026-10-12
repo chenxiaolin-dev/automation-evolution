@@ -6,12 +6,11 @@
 # @Software: PyCharm
 
 import sqlite3
-from itertools import count
+
 from pathlib import Path
 
 from flask import Flask,request,jsonify
 
-import requests
 
 #mock_service--本地写订单服务（Flask +SQLite）
 BASE = Path(__file__).resolve().parent
