@@ -1,0 +1,1 @@
+{"amount":88.0,"created":"2026-10-12","id":48,"status":"created","user_id":1}
