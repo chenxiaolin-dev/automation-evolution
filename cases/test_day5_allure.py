@@ -34,6 +34,8 @@ class TestOrderReport:
             assert row is not None,f"接口返回201单库里查不到id={new_id}"
             assert row["user_id"] == payload["user_id"]
             assert row["amount"] == payload["amount"]
+
+
             assert row["status"] == "created"
 
 
